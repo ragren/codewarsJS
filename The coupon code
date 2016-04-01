@@ -1,0 +1,46 @@
+function checkCoupon(enteredCode, correctCode, currentDate, expirationDate) {
+  var regExp = /(,)/g;
+  currentDate = currentDate.replace(regExp, "");
+  currentDate = currentDate.split(" ");
+  expirationDate = expirationDate.replace(regExp, "");
+  expirationDate = expirationDate.split(" ");
+  var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  var fresh = false;
+  var exDay = parseInt(expirationDate[1]);
+  var cuDay = parseInt(currentDate[1]);
+  var exYear = parseInt(expirationDate[2]);
+  var cuYear = parseInt(currentDate[2]);
+  for (count = 0; count < months.length; count++) {
+    if (expirationDate[0] == months[count]) {
+      expirationDate[0] = count + 1;
+    }
+    if (currentDate[0] == months[count]) {
+      currentDate[0] = count + 1;
+    }
+  }
+  if (exYear < cuYear) {
+    fresh = false;
+  }
+  if (exYear > cuYear) {
+    fresh = true;
+  } else if (exYear == cuYear) {
+    if (expirationDate[0] < currentDate[0]) {
+      fresh = false;
+    } else if (expirationDate[0] == currentDate[0]) {
+      if (exDay >= cuDay) {
+        fresh = true;
+      } else {
+        fresh = false;
+      }
+    } else if (expirationDate[0] > currentDate[0]) {
+      fresh = true;
+    }
+  }
+
+  if (enteredCode === correctCode && fresh) {
+    return true;
+  } else {
+    return false;
+  }
+}
+checkCoupon('123', '123', 'may 11, 2014', 'May 8, 2015');
