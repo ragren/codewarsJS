@@ -1,0 +1,14 @@
+function divisors(integer) {
+  var div = [];
+  for (count = 2; count !== integer; count++) {
+    if (integer % count === 0) {
+      div.push(count);
+    }
+  }
+  if (div.length === 0) {
+    return integer + " is prime";
+  } else {
+    return div;
+  }
+}
+divisors(12);
