@@ -1,0 +1,14 @@
+function toWeirdCase(string){
+string=string.toLowerCase();
+string= string.split("");
+string[0]=string[0].toUpperCase();
+for(count=1; string.length>count; count++){
+	if(string[count-1]==" "){
+		string[count]=string[count].toUpperCase();
+	}
+	if(string[count-1].toUpperCase()!==string[count-1]){
+	string[count]=string[count].toUpperCase();	
+	}
+}
+return string.join("");
+}
