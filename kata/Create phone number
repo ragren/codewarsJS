@@ -1,0 +1,17 @@
+function createPhoneNumber(numbers) {
+  var phoneNr = "";
+  numbers = numbers.join("");
+  for (count = 0; numbers.length > count; count++) {
+    if (count === 0) {
+      phoneNr += "(";
+    }
+    if (count === 3) {
+      phoneNr += ") ";
+    }
+    if (count === 6) {
+      phoneNr += "-";
+    }
+    phoneNr += numbers[count];
+  }
+  return phoneNr;
+}
