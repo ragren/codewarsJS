@@ -1,0 +1,15 @@
+function validParentheses(parens) {
+  var value = 0;
+  for (count = 0; count < parens.length; count++) {
+    if (parens[count] === "(") {
+      value++;
+    } else {
+      value--;
+    }
+  }
+  if (parens.slice(-1) === ")" && parens[0] === "(" && value === 0) {
+    return true;
+  } else {
+    return false;
+  }
+}
