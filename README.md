@@ -1,5 +1,5 @@
 # codewarsKataJS
  
- Javascript KATA projects on codewars.com 
+ Javascript exercises from codewars.com 
  
 http://www.codewars.com/users/ragren
