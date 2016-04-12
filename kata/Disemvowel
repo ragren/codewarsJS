@@ -1,0 +1,8 @@
+function disemvowel(str) {
+  for(var count=0,answer=[]; count<str.length; count++){
+	  if("aeuio".indexOf(str[count].toLowerCase())===-1){
+	  	answer.push(str[count]);
+	  }
+  }
+  return answer.join("");
+}
