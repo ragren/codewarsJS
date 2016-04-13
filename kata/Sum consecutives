@@ -1,0 +1,12 @@
+function sumConsecutives(s) {
+	for(var count=0, array=[]; count<s.length; count++){
+		for(var inside=count, range=1; s[inside]===s[inside+1]; inside++, range++){
+		}
+	array.push(s[count]*range);
+		if(range>1){
+			count+=range-1;
+		}
+	}
+	return array;
+}
+sumConsecutives([1,4,4,4,0,4,3,3,1]);
