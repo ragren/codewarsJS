@@ -1,0 +1,23 @@
+function tickets(peopleInLine) {
+  var answer = "YES";
+  var change = [0, 0, 0];
+  for (count = 0; count < peopleInLine.length; count++) {
+    if (peopleInLine[count] == 25) {
+      change[0] += 1;
+    } else if (peopleInLine[count] == 50) {
+      change[1] += 1, change[0] -= 1;
+    } else {
+      change[2] += 1;
+      if (change[1] > 0) {
+        change[1] -= 1, change[0] -= 1;
+      } else {
+        change[0] -= 3;
+      }
+    }
+    if (change[0] < 0 || change[1] < 0 || change[2] < 0) {
+      answer = "NO"
+    }
+  }
+  return answer;
+}
+tickets([25, 25, 50, 50]);
